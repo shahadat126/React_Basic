@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import Project from "./components/Project";
+import UseRef from "./components/UseRef";
+import UseState from "./components/UseState";
 
 const App = () => {
   const login = false;
@@ -14,12 +16,7 @@ const App = () => {
         event.target.email.value,
     );
   }
-  {/* use state with validation where if value =0 then functio return setvalue will not worked*/}
-  const [value, SetValue] = useState(0);
-  function handledecriment() {
-    if (value === 0) return;
-    SetValue(value - 1);
-  }
+  
   return (
     <div>
       {/* conditional operator */}
@@ -49,15 +46,9 @@ const App = () => {
           submit
         </button>
       </form>
-      <div>
-        <button
-          className="border border-gray-500 bg-blue-950 "
-          onClick={handledecriment}
-        >
-          Decriment
-        </button>
-        <p>{value}</p>
-      </div>
+      <UseState/>
+      <UseRef/>
+     
     </div>
   );
 };
