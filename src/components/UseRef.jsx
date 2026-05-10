@@ -1,8 +1,15 @@
-import React from 'react'
+import React, { useRef } from 'react'
 
 const UseRef = () => {
+    const textRef = useRef(null)
+    function handleClick(){
+        textRef.current.innerText = "Text changed"
+    }
   return (
-    <div>UseRef</div>
+    <div>
+        <h1 ref={textRef}>Content Text</h1>
+        <button className='border bg-blue-900' onClick={handleClick}>Change Text</button>
+    </div>
   )
 }
 
