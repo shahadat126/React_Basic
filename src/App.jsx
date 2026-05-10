@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import Project from "./components/Project";
 import UseRef from "./components/UseRef";
 import UseState from "./components/UseState";
+import Immutable from "./components/Immutable";
+import Fruits from "./components/Fruits";
 
 const App = () => {
   const login = false;
@@ -48,6 +50,8 @@ const App = () => {
       </form>
       <UseState/>
       <UseRef/>
+      <Immutable/>
+      <Fruits/>
      
     </div>
   );
