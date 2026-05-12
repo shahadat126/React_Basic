@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import { BrowserRouter, NavLink, Route, Routes } from "react-router-dom";
 import Project from "./components/Project";
 import UseRef from "./components/UseRef";
 import UseState from "./components/UseState";
 import Immutable from "./components/Immutable";
 import Fruits from "./components/Fruits";
+import Home from "./components/Home";
+import About from "./components/About";
 
 const App = () => {
   const login = false;
@@ -31,7 +33,7 @@ const App = () => {
       {projects.map((project) => (
         <Project name={project} /> /*parent component pass props*/
       ))}
-      <form onSubmit={handlesubmit}>
+      {/* <form onSubmit={handlesubmit}>
         <input
           type="text"
           name="username"
@@ -47,12 +49,21 @@ const App = () => {
         <button type="submit" className="bg-blue-500 text-white p-2 m-2">
           submit
         </button>
-      </form>
-      <UseState/>
+      </form> */}
+      {/* <UseState/>
       <UseRef/>
       <Immutable/>
-      <Fruits/>
-     
+      <Fruits/> */}
+     <BrowserRouter>
+     <nav>
+      <NavLink to='/'>Home</NavLink>
+      <NavLink to='/about' className={({isActive})=>(isActive ? 'active-link red bold' : 'inactive-link blue bold')}>About</NavLink>
+     </nav>
+      <Routes>
+        <Route path="/" element={<Home/>}/>
+        <Route path="/about" element={<About/>}/>
+      </Routes>
+     </BrowserRouter>
     </div>
   );
 };
